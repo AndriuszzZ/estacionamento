@@ -47,7 +47,7 @@ public class Bicicleta extends Veiculo {
        throw new Exception("Bicicleta não encontrada");
     }
 
-    public static void removeAve(int id) throws Exception {
+    public static void removeBicicleta(int id) throws Exception {
         Bicicleta bicicleta = getBicicleta(id);
         bicicletas.remove(bicicleta);
     }
