@@ -42,7 +42,7 @@ public class Carro extends Veiculo {
             return carro;
         }
     }
-    throw new Exception("Bicicleta não encontrada");
+    throw new Exception("Carro não encontrada");
   }
   
   public static void removeCarro(int id) throws Exception {
