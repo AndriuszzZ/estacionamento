@@ -1,48 +1,55 @@
 import java.util.ArrayList;
 
-public class locacao {
-    
+public class Locacao {
+ 
     private int id;
     private String data;
-    
-    puplic static ArrayList<Locacao> locacao = new ArrayList<>();
-    
-    puplic Locacao(
+
+    private static ArrayList<Locacao> locacoes = new ArrayList<Locacao>();
+
+    public Locacao(
         int id,
         String data
     ){
         this.id = id;
         this.data = data;
-        
-        locacao.setlocacao(this);
-        
-        locacao.add(this);
-    }
     
+        locacoes.add(this);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public static Locacao getLocacao(int id) throws Exception{
+        for (Locacao locacao : locacoes) {
+            if (locacao.getId() == id) {
+                return locacao;
+            }
+        }
+        throw new Exception("Locação não encontrada");
+    }
+
+    public static void removeLocacao(int id) throws Exception{
+        Locacao locacao = getLocacao(id);
+        locacoes.remove(locacao);
+    }
+
     @Override
     public String toString() {
         return "Id: " + id + "\n"
         + "Data: " + data + "\n";
-    }
-    puplic int getId() {
-        return this.id;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
-    public String getData() {
-        return this.data;
-    }
-    public void setData(String data) {
-        this.data = data;
-    }
-    
-    public static Locacao verificaId(int id) throws Exception{
-        for (Locacao locacao : locacao) {
-            if (limpeza.id == id) {
-                return limpeza;
-            }
-        }
-        throw new Exception("Limpeza não encontrada");
     }
 }
