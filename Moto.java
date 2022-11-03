@@ -1,63 +1,52 @@
 import java.util.ArrayList;
 
-public class Moto extends Veiculo {
+public class Moto extends Veiculo{
 
     private String placa;
-    private String cor;
-    
-    private static ArrayList<Moto> motos = new ArrayList<>();
+    private String cilindrada;
 
+    private static ArrayList<Moto> motos = new ArrayList<Moto>();
     public Moto(
         int id,
         String nome,
         String placa, 
-        String cor
-    ) {
+        String cilindrada
+    ){
         super(id, nome);
         this.placa = placa;
-        this.cor = cor;
-
-        motos.add(this);
+        this.cilindrada = cilindrada;
     }
 
-    public String placa() {
+    public String getPlaca(){
         return placa;
-    } 
+    }
 
-    public void placa(String placa) {
+    public void setPlaca(String placa){
         this.placa = placa;
-
     }
 
-    public String cor() {
-        return cor;
-    } 
-
-    public void cor(String cor) {
-        this.cor = cor;
-
+    public String getCilindrada(){
+        return cilindrada;
     }
-
-    public static Moto getMoto(int id) throws Exception {
-       for (Moto moto : motos) {
-            if (moto.getId() == id) {
+    
+    public void setCilindrada(String cilindrada){
+        this.cilindrada = cilindrada;
+    }
+    
+    public static Moto getMoto(int id) throws Exception{
+        for(Moto moto : motos){
+            if(moto.getId() == id){
                 return moto;
             }
-       }
-       throw new Exception("moto não encontrada");
+        }
+        throw new Exception ("Moto não encontrado");
     }
 
-    public static void removeMoto(int id) throws Exception {
-        Moto moto = getMoto(id);
-        motos.remove(moto);
-    }
-
-    @Override
+    @Override 
     public String toString() {
-        return "ID" + super.getId() + "\n"
+        return "Id: " + super.getId() + "\n"
         + "Nome: " + super.getNome() + "\n"
-        + "placa: " + this.getPlaca() + "\n"
-        + "Cor: " + this.getCor() + "\n";
+        + "Placa: " + this.getPlaca() + "\n"
+        + "Cilindrada: " + this.getCilindrada() + "\n";
     }
-        
 }
